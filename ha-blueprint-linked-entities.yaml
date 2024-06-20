@@ -58,7 +58,6 @@ max_exceeded: silent
 variables:
   linked_entities: !input linked_entity
   v_entity: {{ trigger.entity_id }}
-  v_time: {{ now().timestamp() }}
   
 trigger:
   - platform: state
