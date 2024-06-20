@@ -52,7 +52,7 @@ blueprint:
         entity:
           multiple: true
 
-mode: single
+mode: restart
 max_exceeded: silent
 
 variables:
