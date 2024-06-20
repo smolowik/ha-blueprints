@@ -57,7 +57,6 @@ max_exceeded: silent
 
 variables:
   linked_entities: !input linked_entity
-  v_entity: trigger.entity_id
   
 trigger:
   - platform: state
