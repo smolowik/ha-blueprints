@@ -85,6 +85,8 @@ trigger:
 condition:
 - condition: template
   value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
+- condition: template
+  value_template: '{{trigger.to_state.context.parent_id is none or (trigger.to_state.context.id != this.context.id and trigger.to_state.context.parent_id != this.context.id) }}'
 
 action:
   - choose:
