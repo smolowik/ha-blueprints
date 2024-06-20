@@ -57,8 +57,9 @@ max_exceeded: silent
 
 variables:
   linked_entities: !input linked_entity
-  v_entity: trigger.entity_id
+  v_entity: {{ trigger.entity_id }}
   v_time: {{ now().timestamp() }}
+  
 trigger:
   - platform: state
     id: turn_on
@@ -84,10 +85,10 @@ trigger:
     attribute: color_temp
     
 condition:
-- condition: template
-  value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
-- condition: template
-  value_template: '{{trigger.to_state.context.parent_id is none or trigger.from_state.context.parent_id is none }}'
+  - condition: template
+    value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
+  - condition: template
+    value_template: '{{trigger.to_state.context.parent_id is none or trigger.from_state.context.parent_id is none }}'
 
 action:
   - choose:
